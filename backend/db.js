@@ -1,6 +1,11 @@
-const pgp = require('pg-promise')();
-const config = require('./config');
+const Pool = require('pg').Pool;
 
-const db = pgp(config);
+const pool = new Pool({
+    user: "postgres",
+    host: "localhost",
+    database: "students",
+    password: "postgres",
+    port: 5432,
+})
 
-module.exports = db;
+module.exports = pool;

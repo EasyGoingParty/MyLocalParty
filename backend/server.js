@@ -1,22 +1,15 @@
-require('dotenv').config();
 const express = require('express');
+const userRoutes = require('./src/user/routes');
 const app = express();
-const PORT = process.env.EXPRESS_PORT || 3000;
-const db = require('./db');
+const PORT = 3000;
 
-app.get('/api/users', async (req, res) => {
-    try {
-      const users = await db.any('SELECT * FROM users');
-      res.json(users);
-    } catch (err) {
-      res.status(500).json({ error: err.message });
-    }
-  });
+app.use(express.json());
 
-app.get('/api', (req, res) => {
-  res.send('Hello from Express API!');
+app.get("/", (req, res) => {
+  res.send("Hello World");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server started on http://localhost:${PORT}`);
-});
+app.use('/api/v1/users', userRoutes);
+
+app.listen(PORT, () => console.log("app is listening on port ${PORT}"));
+
