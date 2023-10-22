@@ -13,7 +13,8 @@
     "dev": "nodemon server.js",
     "start": "npm run pg:start && npm run dev",
     "migrate:up": "node-pg-migrate up -e dev --config ./migrate-config.js",
-    "migrate:down": "node-pg-migrate down -e dev --config ./migrate-config.js"
+    "migrate:down": "node-pg-migrate down -e dev --config ./migrate-config.js",
+    "migrate": "node-pg-migrate"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "express": "^4.18.2",
     "node-pg-migrate": "^6.2.2",
     "pg": "^8.11.3",
+    "pg-pool": "^3.6.1",
     "pg-promise": "^11.5.4"
   },
   "devDependencies": {

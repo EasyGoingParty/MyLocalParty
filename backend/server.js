@@ -1,13 +1,22 @@
 const express = require('express');
 const userRoutes = require('./src/user/routes');
+const pool = require('./db');
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+const connectDb = async () => {
+  try {
+      await pool.connect()
+      console.log("Connect successfully")
+      await pool.end()
+  } catch (error) {
+      console.log(error)
+  }
+}
+
+connectDb();
 
 app.use('/api/v1/users', userRoutes);
 
