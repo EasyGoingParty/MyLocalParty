@@ -7,7 +7,6 @@ const {
     DB_NAME,
     DB_USER,
     DB_PASSWORD,
-    PG_DATA_PATH
   } = process.env;
 const command = `createdb -h ${DB_HOST} -p ${DB_PORT} -U ${DB_USER} ${DB_NAME}`;
 
