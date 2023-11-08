@@ -6,6 +6,7 @@ const getAllUsers = (req, res) => {
         if (error) throw error;
         res.status(200).json(results.rows);
     });
+    res.send('Hello, world!')
 };
 
 const getUsersById = (req, res) => {

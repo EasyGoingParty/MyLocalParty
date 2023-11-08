@@ -10,7 +10,7 @@
     "pg:restart": "yarn pg:stop && yarn pg:start",
     "build": "npm install -g yarn && yarn install",
     "start": "node server.js",
-    "dev": "node server.js",
+    "dev": "nodemon server.js",
     "migrate:up": "node-pg-migrate up -e dev --config ./migrate-config.js",
     "migrate:down": "node-pg-migrate down -e dev --config ./migrate-config.js",
     "migrate": "node-pg-migrate"
