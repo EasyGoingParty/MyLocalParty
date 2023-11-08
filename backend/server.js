@@ -10,7 +10,6 @@ const connectDb = async () => {
   try {
       await pool.connect()
       console.log("Connect successfully")
-      await pool.end()
   } catch (error) {
       console.log(error)
   }
